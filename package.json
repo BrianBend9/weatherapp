@@ -4,7 +4,9 @@
   "description": "",
   "main": "src/server/server-entry.js",
   "scripts": {
-    "dev": "node ./src/server/dev-server"
+    "dev": "node ./src/server/dev-server",
+    "build": "NODE_ENV=production webpack --config webpack.config.prod.js",
+    "build:dev": "node_modules/.bin/webpack --config webpack.config.dev.js"
   },
   "author": "Brian Bend",
   "license": "ISC",

@@ -1,17 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const prod = process.env.NODE_ENV === 'production';
 
 module.exports = {
-  devtool: 'source-map',
-  entry: {
-    app: [
-      'react-hot-loader/patch',
-      'webpack-dev-server/client?http://localhost:3000',
-      'webpack/hot/only-dev-server',
-      path.join(__dirname, 'src', 'app', 'client-entry.js')
-    ] 
-  },
+  devtool: (prod) ? 'eval' : 'source-map',
 
   output: {
     path: path.join(__dirname, 'build'), 
@@ -24,7 +17,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         include: path.join(__dirname, 'src'),
-        loader: 'babel 
+        loader: 'babel' 
       },
 
       {
@@ -35,12 +28,20 @@ module.exports = {
     ] 
   },
 
+  resolve: {
+    extensions: ['', '.js', '.jsx', '.scss'] 
+  },
+
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'templates', 'index.ejs')  
     }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV) 
+      } 
+    }),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ]
 };
