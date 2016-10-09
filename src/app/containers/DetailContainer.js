@@ -1,3 +1,5 @@
+/* eslint-disable react/prefer-stateless-function */
+
 import React, { Component } from 'react';
 
 export default class DetailContainer extends Component {
@@ -6,6 +8,6 @@ export default class DetailContainer extends Component {
       <div>
         Im the Detail Container Component
       </div>
-    ); 
+    );
   }
 }

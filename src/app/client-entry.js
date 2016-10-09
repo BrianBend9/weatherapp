@@ -10,14 +10,15 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-if(module.hot) {
+if (module.hot) {
   module.hot.accept('./containers/Root', () => {
-    const NextApp = require('./containers/Root').default;
+    const NextApp = require('./containers/Root').default; //eslint-disable-line
+
     ReactDOM.render(
       <AppContainer>
         <NextApp />
       </AppContainer>,
       document.getElementById('root')
-    ); 
+    );
   });
 }

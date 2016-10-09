@@ -6,9 +6,9 @@ import DetailContainer from './containers/DetailContainer';
 import OverviewContainer from './containers/OverviewContainer';
 
 export default (
-  <Route path='/' component={ MainLayout } >
-    <IndexRoute component={ Search } />
-    <Route path='/overview/:location' component={ OverviewContainer } />
-    <Route path='/detail/:day' component={ DetailContainer } />
+  <Route path='/' component={MainLayout} >
+    <IndexRoute component={Search} />
+    <Route path='/overview/:location' component={OverviewContainer} />
+    <Route path='/detail/:day' component={DetailContainer} />
   </Route>
 );
