@@ -2,15 +2,18 @@
   "name": "weatherapp",
   "version": "1.0.0",
   "description": "",
-  "main": "src/server/server-entry.js",
+  "main": "src/server/www-entry.js",
   "scripts": {
-    "prestart": "rm -rf ./build && npm run build",
-    "dev": "node ./src/server/dev-server",
-    "build": "NODE_ENV=production ./node_modules/.bin/webpack --config webpack.config.prod.js --progress --colors"
+    "prestart": "rm -rf build && npm run build",
+    "dev:fe": "node src/server/dev-server",
+    "dev:be": "nodemon --exec DEBUG=express:* node_modules/.bin/babel-node src/server/www-entry",
+    "dev:be-nodebug": "nodemon --exec node_modules/.bin/babel-node src/server/www-entry",
+    "build": "NODE_ENV=production node_modules/.bin/webpack --config webpack.config.prod.js --progress --colors"
   },
   "author": "Brian Bend",
   "license": "ISC",
   "devDependencies": {
+    "babel-cli": "^6.16.0",
     "babel-core": "^6.17.0",
     "babel-eslint": "^6.1.2",
     "babel-loader": "^6.2.5",
@@ -24,7 +27,10 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.4.0",
+    "express": "^4.14.0",
     "html-webpack-plugin": "^2.22.0",
+    "morgan": "^1.7.0",
+    "nodemon": "^1.11.0",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2"
   },
