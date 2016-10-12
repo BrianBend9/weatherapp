@@ -1,46 +1,19 @@
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const defaultConfig = require('./webpack.common');
 
-module.exports = {
-  devtool: 'source-map',
+const devConfig = Object.assign({}, defaultConfig, {
   entry: {
     app: [
       'react-hot-loader/patch',
-      'webpack-dev-server/client?http://localhost:4000',
-      'webpack/hot/only-dev-server',
+      'webpack-hot-middleware/client?reload=true',
       path.join(__dirname, 'src', 'app', 'client-entry.js')
     ] 
   },
+});
 
-  output: {
-    path: path.join(__dirname, 'build'), 
-    filename: '[name].bundle.js',
-    publicPath: '/'
-  },
+devConfig.plugins.push(
+  new webpack.HotModuleReplacementPlugin()
+);
 
-  module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        include: path.join(__dirname, 'src'),
-        loader: 'babel' 
-      },
-
-      {
-        test: /\.ejs$/,
-        exclude: /node_modules/,
-        loader: 'ejs-compiled-loader' 
-      },
-    ] 
-  },
-
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src', 'templates', 'index.ejs')  
-    }),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
-  ]
-};
+module.exports = devConfig;

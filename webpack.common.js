@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const prod = process.env.NODE_ENV === 'production';
 
 module.exports = {
@@ -27,12 +26,6 @@ module.exports = {
         include: path.join(__dirname, 'src'),
         loader: 'babel' 
       },
-
-      {
-        test: /\.ejs$/,
-        exclude: /node_modules/,
-        loader: 'ejs-compiled-loader' 
-      },
     ] 
   },
 
@@ -41,9 +34,6 @@ module.exports = {
   },
 
   plugins: [
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src', 'templates', 'index.ejs')  
-    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV) 

@@ -2,3 +2,5 @@ node_modules/
 build/
 *.swp
 *log
+.DS_Store
+npm-debug.log
