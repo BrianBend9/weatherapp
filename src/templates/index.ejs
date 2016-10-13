@@ -11,8 +11,8 @@
   </head>
   <body>
     <div id='root'>
-      <% if(typeof initialState !== 'undefined') { %>
-        <%- content %> 
+      <% if(typeof content !== 'undefined') { %>
+       <div><%- content %></div> 
       <% } %>
     </div>  
     <script src="/app.bundle.js"></script>

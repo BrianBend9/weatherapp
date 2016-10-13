@@ -3,10 +3,8 @@ import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 import routes from '../app/routes';
 
-import { createStore, combineReducers } from 'redux';
+import configureStore from '../app/store/configureStore';
 import { Provider } from 'react-redux';
-import locationReducer from '../app/reducers/LocationReducer';
-import forecastReducer from '../app/reducers/ForecastReducer';
 
 const webpack = require('webpack');
 const webpackConfig = require('../../webpack.config.dev.js');
@@ -36,11 +34,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 server.get('*', (req, res) => {
-  const reducers = combineReducers({
-    location: locationReducer,
-  forecast: forecastReducer 
-  }); 
-  const store = createStore(reducers);
+  const store = configureStore();
 
   match({ routes, location: req.url }, (err, redirectLocation, props) => {
     if (err) {
@@ -48,7 +42,7 @@ server.get('*', (req, res) => {
     } else if (redirectLocation) {
       res.redirect(302, redirectLocation.pathname + redirectLocation.search); 
     } else if (props) {
-      const initialState = JSON.stringify({a: 1, b: 2}); 
+      const initialState = JSON.stringify(store.getState()); 
       const content = renderToString(
         <Provider store={store}>
           <RouterContext {...props} />

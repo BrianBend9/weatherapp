@@ -3,10 +3,10 @@ import Immutable from 'immutable';
 const defaultState = new Immutable.Map();
 
 export default function locationReducer(state = defaultState, action) {
-  switch(action.type) {
+  switch (action.type) {
     case 'GET_LOC_COORDINATES':
-     return state.Map({a: 0});
+      return state.Immutable.set({ a: 0 });
     default:
-      return state; 
+      return state;
   }
 }
