@@ -1,15 +1,13 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
-import routes from '../app/routes';
-
-import configureStore from '../app/store/configureStore';
 import { Provider } from 'react-redux';
+import routes from '../app/routes';
+import configureStore from '../app/store/configureStore';
 
 const webpack = require('webpack');
 const webpackConfig = require('../../webpack.config.dev.js');
 const compiler = webpack(webpackConfig);
-
 const express = require('express');
 const logger = require('morgan');
 const path = require('path');

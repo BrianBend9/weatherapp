@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import locationReducer from './LocationReducer';
-import forecastReducer from './ForecastReducer';
+import locationReducer from './locationReducer';
+import forecastReducer from './forecastReducer';
 
 
 const reducers = combineReducers({
@@ -10,4 +10,4 @@ const reducers = combineReducers({
   routing: routerReducer,
 });
 
-export { reducers as default };
+export default reducers;

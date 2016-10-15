@@ -7,9 +7,10 @@ import Root from './containers/Root';
 import configureStore from './store/configureStore';
 
 const initialState = window.__INITIAL_STATE__ //eslint-disable-line
-const store = configureStore(initialState);
+const store = configureStore(initialState, browserHistory);
 const history = syncHistoryWithStore(browserHistory, store);
 const rootElement = document.getElementById('root');
+
 
 ReactDOM.render(
   <AppContainer>
@@ -24,7 +25,7 @@ if (module.hot) {
 
     ReactDOM.render(
       <AppContainer>
-        <NextApp />
+        <NextApp store={store} history={history} />
       </AppContainer>,
       rootElement
     );
