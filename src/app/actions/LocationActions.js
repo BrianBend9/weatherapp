@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+// Location 'Status' Actions
+
 export function requestCoordinates(location) {
   return {
     type: 'REQUEST_COORDINATES_PENDING',
@@ -8,23 +10,64 @@ export function requestCoordinates(location) {
   };
 }
 
-export function fulfilledCoodinates() {
+export function fulfilledCoordinates(response) {
   return {
-    type: 'GET_COORDINATES_FULFILLED',
+    type: 'REQUEST_COORDINATES_FULFILLED',
     requestStatus: 'fulfilled',
+    response,
   };
 }
 
-export function rejectedCoodinates() {
+export function rejectedCoordinates(response) {
   return {
-    type: 'GET_COORDINATES_FAILED',
+    type: 'REQUEST_COORDINATES_FAILED',
     requestStatus: 'failed',
+    response,
   };
 }
 
-export function getCoordinates(location) {
-  return (dispatch) => {
+// Forecast 'Status' Actions
+
+export function requestForecast() {
+  return {
+    type: 'REQUEST_FORECAST_PENDING',
+    requestStatus: 'pending',
+  };
+}
+
+export function fulfilledForecast(response) {
+  return {
+    type: 'REQUEST_FORECAST_FULFILLED',
+    requestStatus: 'fulfilled',
+    response,
+  };
+}
+
+export function rejectedForecast(response) {
+  return {
+    type: 'REQUEST_FORECAST_FAILED',
+    requestStatus: 'failed',
+    response,
+  };
+}
+
+// Coordinates & Forecast data retrieval action
+
+export function getForecast(location) {
+  return (dispatch, getState) => {
     dispatch(requestCoordinates(location));
-    axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${process.env.GEOCODER_API_KEY}`);
+    return axios.get(`/api/geocode?location=${location}`)
+    .then(
+      response => dispatch(fulfilledCoordinates(response)),
+      error => dispatch(rejectedCoordinates(error)),
+    )
+    .then(
+      () => dispatch(requestForecast()),
+      axios.get(`/api/forecast?lat=${getState().location.latitude}&lon=${getState().location.longitude}`)
+      .then(
+        response => dispatch(fulfilledForecast(response)),
+        error => dispatch(rejectedForecast(error)),
+      )
+    );
   };
 }
