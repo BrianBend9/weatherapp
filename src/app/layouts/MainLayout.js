@@ -5,7 +5,7 @@ import React, { Component, PropTypes } from 'react';
 export default class MainLayout extends Component {
   render() {
     return (
-      <div>
+      <div className='layout--main'>
         <h1>Im the Main Component!!!</h1>
         { this.props.children }
       </div>

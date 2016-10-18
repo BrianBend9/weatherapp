@@ -22,13 +22,14 @@ appRouting.get('*', (req, res, next) => {
     } else if (redirectLocation) {
       res.redirect(302, redirectLocation.pathname + redirectLocation.search); 
     } else if (props) {
+      const css = (process.env.NODE_ENV !== 'production') ? 'app.css' : 'app.min.css';
       const initialState = JSON.stringify(store.getState()); 
       const content = renderToString(
         <Provider store={store}>
           <RouterContext {...props} />
         </Provider>
       );
-      res.render('index', {content, initialState});   
+      res.render('index', {content, initialState, css});   
     } else {
       res.sendStatus(404); 
     }

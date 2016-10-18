@@ -1,5 +1,6 @@
 import appRouting from './appRouting';
 import apiRouting from './apiRouting';
+import compression from 'compression';
 import express from 'express';
 import logger from 'morgan';
 import path from 'path';
@@ -10,6 +11,7 @@ const compiler = webpack(webpackConfig);
 const server = express();
 
 server.use(logger(process.env.REQUEST_LOG_FORMAT || 'dev'));
+server.use(compression());
 
 if (process.env.NODE_ENV !== 'production') {
   server.use(require('webpack-dev-middleware')(compiler, {
@@ -20,9 +22,9 @@ if (process.env.NODE_ENV !== 'production') {
     }
   }));
   server.use(require('webpack-hot-middleware')(compiler));
-} else {
-  server.use(express.static('build'));
 }
+
+server.use(express.static('build'));
 
 server.use('/api', apiRouting);
 
