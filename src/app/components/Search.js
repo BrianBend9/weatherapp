@@ -34,24 +34,25 @@ class Search extends Component {
   render() {
     return (
       <div>
-        Im the Search Component!!!
         <form
-          className='searchForm'
+          className={this.props.className}
           onSubmit={this.handleSubmit}
+          role={this.props.role}
         >
           <input
-            className='searchForm__input'
+            className='form-control'
             name='location'
             onChange={this.handleChangeText}
             placeholder='Toronto, Canada'
             type='text'
             value={this.state.location}
           />
-          <input
-            className='searchForm__submit'
+          <button
+            className='btn btn-default'
             type='submit'
-            value='Get Weather'
-          />
+          >
+            Get Weather
+          </button>
         </form>
       </div>
     );
@@ -61,6 +62,8 @@ class Search extends Component {
 Search.propTypes = {
   routerActions: PropTypes.object.isRequired, //eslint-disable-line
   actionCreators: PropTypes.object.isRequired, //eslint-disable-line
+  className: PropTypes.string.isRequired,
+  role: PropTypes.string,
 };
 
 function mapDispatchToProps(dispatch) {
