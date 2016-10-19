@@ -8,8 +8,9 @@ export default class MainLayout extends Component {
     return (
       <div className='layout--main'>
         <Navbar />
-        <h1>Im the Main Component!!!</h1>
-        { this.props.children }
+        <div className='layout__search--main'>
+          { this.props.children }
+        </div>
       </div>
     );
   }

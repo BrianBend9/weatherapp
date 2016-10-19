@@ -33,9 +33,10 @@ class Search extends Component {
 
   render() {
     return (
-      <div>
+      <div className={this.props.containerClass}>
+        <h3>{this.props.label}</h3>
         <form
-          className={this.props.className}
+          className={this.props.formClass}
           onSubmit={this.handleSubmit}
           role={this.props.role}
         >
@@ -48,7 +49,7 @@ class Search extends Component {
             value={this.state.location}
           />
           <button
-            className='btn btn-default'
+            className={this.props.formBtnClass}
             type='submit'
           >
             Get Weather
@@ -60,10 +61,13 @@ class Search extends Component {
 }
 
 Search.propTypes = {
-  routerActions: PropTypes.object.isRequired, //eslint-disable-line
   actionCreators: PropTypes.object.isRequired, //eslint-disable-line
-  className: PropTypes.string.isRequired,
+  containerClass: PropTypes.string,
+  formBtnClass: PropTypes.string,
+  formClass: PropTypes.string,
+  label: PropTypes.string,
   role: PropTypes.string,
+  routerActions: PropTypes.object.isRequired, //eslint-disable-line
 };
 
 function mapDispatchToProps(dispatch) {

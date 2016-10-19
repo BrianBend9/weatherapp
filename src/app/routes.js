@@ -7,7 +7,9 @@ import OverviewContainer from './containers/OverviewContainer';
 
 export default (
   <Route path='/' component={MainLayout} >
-    <IndexRoute component={Search} />
+    <IndexRoute
+      component={() => <Search label='Enter a city or location.' containerClass='form__container--main' formBtnClass='btn btn-default form__searchBtn--main' />}
+    />
     <Route path='/overview/:location' component={OverviewContainer} />
     <Route path='/detail/:day' component={DetailContainer} />
   </Route>
