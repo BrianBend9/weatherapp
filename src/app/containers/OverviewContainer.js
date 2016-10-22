@@ -9,8 +9,16 @@ import * as actionCreators from '../actions/LocationActions';
 class OverviewContainer extends Component {
   render() {
     return (
-      <div>
-        Im the Overview Container Component
+      <div className='container--overview'>
+        <div className='display--location' />
+        <div className='container--currentOverview' />
+        <div className='row container--dailyOverview'>
+          <div className='col-md-2 display--day' />
+          <div className='col-md-2 display--day' />
+          <div className='col-md-2 display--day' />
+          <div className='col-md-2 display--day' />
+          <div className='col-md-2 display--day' />
+        </div>
       </div>
     );
   }

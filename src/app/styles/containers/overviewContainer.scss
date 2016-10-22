@@ -1,0 +1,58 @@
+.container--overview {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.display--location {
+  height: 26%;
+  padding-top: 50px;
+  background-color: red;
+}
+
+.container--dailyOverview {
+  height: 50%;
+  margin: 0px 3px 3px 3px;
+}
+
+.display--day {
+  background-color: orange;
+  height: 19%;
+  margin: 3px 0px 3px 0px;
+}
+
+.container--currentOverview {
+  background-color: blue;
+  height: 24%;
+}
+
+@media (min-width: 992px) {
+
+  .container--overview {
+    width: 90%;
+  }
+
+  .container--dailyOverview {
+    text-align: center; 
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin: 0px -3px 0px -3px;
+    height: 40%;
+ }
+
+  .display--day {
+    width: 19%;
+    height: 75%;
+  }
+
+  .display--location {
+    height: 20%;
+  }
+
+  .container--currentOverview {
+    height: 40%;
+  }
+}
