@@ -10,22 +10,36 @@
   height: 26%;
   padding-top: 50px;
   background-color: red;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
-.container--dailyOverview {
+.container--weekOverview {
   height: 50%;
   margin: 0px 3px 3px 3px;
 }
 
-.display--day {
+.container--dayOverview {
   background-color: orange;
   height: 19%;
   margin: 3px 0px 3px 0px;
+  padding: 0px !important;
 }
 
 .container--currentOverview {
   background-color: blue;
   height: 24%;
+}
+
+.mask--dayOverview {
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 @media (min-width: 992px) {
@@ -34,7 +48,7 @@
     width: 90%;
   }
 
-  .container--dailyOverview {
+  .container--weekOverview {
     text-align: center; 
     display: flex;
     flex-flow: row nowrap;
@@ -43,7 +57,7 @@
     height: 40%;
  }
 
-  .display--day {
+  .container--dayOverview {
     width: 19%;
     height: 75%;
   }

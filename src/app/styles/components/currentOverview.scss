@@ -1,0 +1,98 @@
+.display--currentOverview {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 0px 3px 0px 3px;
+}
+
+.display__tempAndIcon--currentOverview {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-conten: center;
+  align-content: center;
+  width: 60%;
+  height: 100%;
+  background-color: orange;
+}
+
+.forecastTemperature--currentOverview,
+.forecastImage--currentOverview {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.forecastTemperature--currentOverview {
+  font-size: 36px;
+}
+
+.forecastTemperature--currentOverview span {
+  font-size: 20px;
+}
+
+.display__heading--currentOverview {
+  font-size: 16px;
+  margin: 2px;
+}
+
+.display__environmentals--currentOverview {
+  width: 30%;
+  height: 100%;  
+  background-color: yellow;
+  display: none;
+}
+
+.forecastBrief--currentOverview {
+  width: 40%;
+  height: 100%;
+  background-color: gold;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  text-align: right;
+}
+
+@media (min-width: 992px) {
+  .display__environmentals--currentOverview {
+    display: flex; 
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .display__environmentals--currentOverview ul li {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center; 
+    width: 40%;
+    margin: 0px 0px 10px 0px;
+  }
+
+  .display__environmentals--currentOverview ul {
+    list-style-type: none; 
+    width: 100%;
+    padding: 0px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+
+  .display__envHeading--currentOverview,
+  .display__envReading--currentOverview {
+    margin: 0px; 
+  }
+
+  .forecastBrief--currentOverview {
+    width: 30%; 
+  }
+
+  .display__tempAndIcon--currentOverview {
+    width: 40%; 
+  }
+
+} 
