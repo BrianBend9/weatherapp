@@ -8,9 +8,15 @@ import OverviewContainer from './containers/OverviewContainer';
 export default (
   <Route path='/' component={MainLayout} >
     <IndexRoute
-      component={() => <Search label='Enter a city or location.' containerClass='form__container--main' formBtnClass='btn btn-default form__searchBtn--main' />}
+      component={() =>
+        <Search
+          label='Enter a city or location.'
+          containerClass='form__container--main'
+          formBtnClass='btn btn-info form__searchBtn--main'
+          formClass='formClass'
+        />}
     />
     <Route path='/overview/:location' component={OverviewContainer} />
-    <Route path='/detail/:day' component={DetailContainer} />
+    <Route path='/detail/:day/:dayOfWeek' component={DetailContainer} />
   </Route>
 );

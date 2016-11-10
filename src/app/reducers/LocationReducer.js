@@ -1,3 +1,5 @@
+import { createCoordinatesObj } from '../utils/apiHelpers';
+
 const defaultState = {
   locationName: '',
   formattedAddress: '',
@@ -14,12 +16,7 @@ export default function locationReducer(state = defaultState, action) {
         requestStatus: 'pending',
       });
     case 'REQUEST_COORDINATES_FULFILLED':
-      return Object.assign({}, state, {
-        formattedAddress: action.response.data[0].formatted_address,
-        requestStatus: 'fulfilled',
-        latitude: action.response.data[0].geometry.location.lat,
-        longitude: action.response.data[0].geometry.location.lng,
-      });
+      return createCoordinatesObj(action.response);
 //    case 'REQUEST_COORDINATES_FAILED':
 //      return
     default:

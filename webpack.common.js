@@ -45,11 +45,25 @@ module.exports = {
           (prod) ? 'sass?sourceMap&outputStyle=compressed' : 'sass?sourceMap&outputStyle=expanded' 
         ]) 
       },
+
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        include: path.join(__dirname, 'src', 'app', 'images'),
+        loaders: [
+          'file?hash=sha512&digest=hex&name=images/[name]-[hash].[ext]',
+          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+        ] 
+      },
+
+      {
+        test: /\.json$/,
+        loaders: ['json-loader'] 
+      }
     ]
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx', '.scss'] 
+    extensions: ['', '.js', '.jsx', 'json', '.scss'] 
   },
 
   postcss: function() {

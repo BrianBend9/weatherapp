@@ -2,7 +2,6 @@
   display: flex;
   height: 100%;
   flex-flow: row nowrap;
-  background: purple;
 }
 
 .forecastImage--dayOverview {
@@ -12,21 +11,26 @@
   text-align: center;
   order: 1;
   width: 15%;
+
+  img {
+    height: 25px; 
+  }
 }
 
 .forecastBrief--dayOverview {
   order: 2;
-  width: 63%;
+  width: 60%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
+  padding-right: 5px;
 }
 
 .forecastTemperature--dayOverview {
   order: 3;
   display: flex;
   flex-flow: row nowrap;
-  width: 22%;
+  width: 25%;
   font-size: 12px;
 }
 
@@ -41,6 +45,7 @@
  .display__dayOfWeek--dayOverview {
    font-size: 13px;
    margin: 0px;
+   color: black;
  } 
 
 .display__high--dayOverview,
@@ -53,12 +58,20 @@
   align-items: center;
 }
 
-.temperatureHeading--dayOverview,
+.temperatureHeading--dayOverview {
+  margin: 0px;
+  color: black;
+}
+
 .temperatureReading--dayOverview {
   margin: 0px;
 }
 
 @media (min-width: 750px) {
+  .forecastImage--dayOverview img {
+    height: 35px; 
+  }
+
   .temperatureHeading--dayOverview {
     font-size: 16px; 
   }  
@@ -83,26 +96,32 @@
   }
 
   .forecastBrief--dayOverview {
-    height: 30%;
+    height: 40%;
     width: 100%;
-    background-color: brown;
     align-items: center;
     justify-content: initial;
     order: 1;
+    padding: 0px 2px;
   }
 
   .forecastImage--dayOverview {
-    height: 44%;
+    height: 34%;
     width: 100%;
-    background-color: black;
     order: 2;
+
+    img {
+      height: 60px; 
+    }
   }
 
   .forecastTemperature--dayOverview {
-    height: 26%;
+    height: 25%;
     width: 100%;
-    background-color: grey;
     order: 3;
+  }
+ 
+  .display__dayOfWeek--dayOverview {
+    font-size: 20px; 
   }
 
   .display__high--dayOverview,

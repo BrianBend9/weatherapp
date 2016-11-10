@@ -26,6 +26,17 @@ export function rejectedCoordinates(response) {
   };
 }
 
+export function getLocation(location) {
+  return (dispatch) => {
+    dispatch(requestCoordinates(location));
+    return axios.get(`http://localhost:3000/api/geocode?location=${location}`)
+      .then(
+        response => dispatch(fulfilledCoordinates(response)),
+        error => dispatch(rejectedCoordinates(error))
+      );
+  };
+}
+
 // Forecast 'Status' Actions
 
 export function requestForecast() {
@@ -51,23 +62,23 @@ export function rejectedForecast(response) {
   };
 }
 
-// Coordinates & Forecast data retrieval action
-
-export function getForecast(location) {
-  return (dispatch, getState) => {
-    dispatch(requestCoordinates(location));
-    return axios.get(`/api/geocode?location=${location}`)
-    .then(
-      response => dispatch(fulfilledCoordinates(response)),
-      error => dispatch(rejectedCoordinates(error)),
-    )
-    .then(
-      () => dispatch(requestForecast()),
-      axios.get(`/api/forecast?lat=${getState().location.latitude}&lon=${getState().location.longitude}`)
+export function getForecast(latitude, longitude) {
+  return (dispatch) => {
+    dispatch(requestForecast());
+    return axios.get(`http://localhost:3000/api/forecast?lat=${latitude}&lon=${longitude}`)
       .then(
         response => dispatch(fulfilledForecast(response)),
-        error => dispatch(rejectedForecast(error)),
-      )
-    );
+        error => dispatch(rejectedForecast(error))
+      );
   };
+}
+
+// Coordinates & Forecast data retrieval action
+
+export function getLocationAndForecast(location) {
+  return (dispatch, getState) =>
+    dispatch(getLocation(location))
+      .then(() =>
+        dispatch(getForecast(getState().location.latitude, getState().location.longitude))
+      );
 }

@@ -16,7 +16,7 @@ const Navbar = () => (
         <a className='navbar-brand' href='#'>Weatherapp</a>
       </div>
       <div className='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>
-        <Search formClass='navbar-form navbar-right' formBtnClass='btn btn-default' containerClass='form__container--navbar' role='search' />
+        <Search formClass='navbar-form navbar-right' formBtnClass='btn btn-info' containerClass='form__container--navbar' role='search' />
       </div>
     </div>
   </nav>

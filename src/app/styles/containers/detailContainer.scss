@@ -1,0 +1,92 @@
+.container--detail {
+  height: 100%;
+  width: 100%;
+}
+
+.forecastTemperature--dayDetail {
+  height: 38%;
+  width: 100%;
+  background-color: rgba(52, 175, 212, 0.2); 
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.display__fullDate--dayDetail {
+  height: 10%;
+
+  p {
+    font-size: 14px; 
+  }
+}
+
+.forecastImage--dayDetail, 
+.display__low--dayDetail,
+.display__high--dayDetail {
+  height: 100%;
+  width: 35%;
+  display:flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.forecastImage--dayDetail {
+  width: 30%;
+
+  img {
+    height: 100px; 
+  }
+}
+
+.forecastEnvironmentals--dayDetail {
+  height: 38%;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.forecastEnvironmentals--dayDetail ul {
+  list-style-type: none;
+  padding: 0px;
+  width: 96%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: 0px;
+  text-align: center;
+}
+
+.forecastEnvironmentals--dayDetail ul li {
+  width: 32%; 
+  margin-bottom: 10px;
+}
+
+.display__envHeading--dayDetail {
+  margin: 0px;
+  color: black;
+}
+
+.temperatureHeading--dayDetail {
+  font-size: 16px;
+  margin: 0px;
+  color: black;
+}
+
+.temperatureReading--dayDetail {
+  font-size: 30px;
+  margin: 0px;
+}
+
+@media (min-width: 750px) {
+  .forecastImage--dayDetail img {
+    height: 130px; 
+  }
+}
+
+@media (min-width: 992px) {
+}
+

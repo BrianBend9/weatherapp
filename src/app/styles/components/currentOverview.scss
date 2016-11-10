@@ -3,35 +3,66 @@
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
+  background-color: rgba(52, 175, 212, 0.2);
   padding: 0px 3px 0px 3px;
 }
 
 .display__tempAndIcon--currentOverview {
   display: flex;
   flex-flow: row nowrap;
-  justify-conten: center;
+  justify-content: center;
   align-content: center;
-  width: 60%;
+  width: 63%;
   height: 100%;
-  background-color: orange;
 }
 
 .forecastTemperature--currentOverview,
 .forecastImage--currentOverview {
-  width: 50%;
   height: 100%;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
 }
 
 .forecastTemperature--currentOverview {
-  font-size: 36px;
+  width: 60%;
+  padding-left: 10px;
+}
+
+.forecastImage--currentOverview {
+  width: 40%;
+
+  img {
+    height: 75px; 
+  }
+}
+
+.forecastTemperature--currentOverview h2 {
+  font-size: 30px;
 }
 
 .forecastTemperature--currentOverview span {
   font-size: 20px;
+  margin-top: 20px;
+}
+
+.display__timezone--currentOverview {
+  margin: 0px;
+  color: black;
+  text-align: center;
+  font-size: 12px;
+}
+
+.display__temperature--currentOverview {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-content: center;
+  
+  h2, span {
+    margin-top: 10px; 
+  }
 }
 
 .display__heading--currentOverview {
@@ -39,24 +70,63 @@
   margin: 2px;
 }
 
+.display__envHeading--currentOverview {
+  color: black;
+}
+
 .display__environmentals--currentOverview {
   width: 30%;
   height: 100%;  
-  background-color: yellow;
   display: none;
+
+  ul {
+    margin: 0px;
+  }
 }
 
 .forecastBrief--currentOverview {
-  width: 40%;
+  width: 37%;
   height: 100%;
-  background-color: gold;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  text-align: right;
+  text-align: center;
+  padding-right: 10px;
+
+  p {
+    font-size: 16px;
+    margin-bottom: 0px;
+  }
+}
+
+.display__briefHeading--currentOverview {
+  color: black;
+}
+
+@media (min-width: 750px) {
+  .display__timezone--currentOverview {
+    font-size: 14px; 
+  }
+
+  .forecastImage--currentOverview img {
+    height: 100px;
+  }
+
+  .display__temperature--currentOverview h2 {
+    font-size: 40px; 
+  }
 }
 
 @media (min-width: 992px) {
+  .forecastTemperature--currentOverview,
+  .forecastImage--currentOverview {
+    width: 50%; 
+  } 
+
+  .forecastImage--currentOverview img {
+    height: 130px; 
+  }
+
   .display__environmentals--currentOverview {
     display: flex; 
     flex-flow: row wrap;
@@ -94,5 +164,4 @@
   .display__tempAndIcon--currentOverview {
     width: 40%; 
   }
-
 } 

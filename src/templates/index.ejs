@@ -9,7 +9,7 @@
   <link href='/<%= css %>' rel='stylesheet' type='text/css'>
     <% if(typeof initialState !== 'undefined') { %>
       <script type='application/javascript'>
-        window.__INITIAL_STATE__ = <%- initialState %>
+        window.__INITIAL_STATE__ = <%- JSON.stringify(initialState) %>
       </script>
     <% } %>
   <title></title>
