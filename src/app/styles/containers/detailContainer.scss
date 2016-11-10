@@ -4,7 +4,7 @@
 }
 
 .forecastTemperature--dayDetail {
-  height: 38%;
+  height: 34%;
   width: 100%;
   background-color: rgba(52, 175, 212, 0.2); 
   display: flex;
@@ -14,10 +14,23 @@
 }
 
 .display__fullDate--dayDetail {
-  height: 10%;
+  height: 5%;
 
   p {
     font-size: 14px; 
+    color: black;
+    margin: 0px;
+    text-align: center;
+  }
+}
+
+.display__description--dayDetail {
+  height: 8%;
+
+  p {
+    font-size: 16px;
+    margin: 2px 0px 0px 0px;
+    text-align: center; 
   }
 }
 
@@ -41,7 +54,7 @@
 }
 
 .forecastEnvironmentals--dayDetail {
-  height: 38%;
+  height: 27%;
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
@@ -61,8 +74,8 @@
 }
 
 .forecastEnvironmentals--dayDetail ul li {
+  height: 45px;
   width: 32%; 
-  margin-bottom: 10px;
 }
 
 .display__envHeading--dayDetail {
@@ -85,6 +98,15 @@
   .forecastImage--dayDetail img {
     height: 130px; 
   }
+
+  .display__low--dayDetail {
+    padding-left: 200px; 
+  }
+
+  .display__high--dayDetail {
+    padding-right: 200px; 
+  }
+
 }
 
 @media (min-width: 992px) {

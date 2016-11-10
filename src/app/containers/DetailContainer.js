@@ -3,6 +3,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 
 class DetailContainer extends Component {
   render() {
@@ -17,7 +18,11 @@ class DetailContainer extends Component {
         </div>
 
         <div className='display__fullDate--dayDetail'>
-          <p>{forecast[dayObj].fullDate}</p>
+          <p>{moment(forecast[dayObj].fullDate).format('dddd, MMMM D YYYY')}</p>
+        </div>
+
+        <div className='display__description--dayDetail'>
+          <p>{forecast[dayObj].summary}</p>
         </div>
 
         <div className='forecastTemperature--dayDetail'>

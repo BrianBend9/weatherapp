@@ -53,6 +53,7 @@ export function createForecastObj(apiObj) {
 
   for (let i = 0; i < obj.length; i++) { //eslint-disable-line
     obj[i].cloudCover = Math.round(obj[i].cloudCover * 100);
+    obj[i].dayOfWeek = dayOfWeek(obj[i].time, timezone);
     obj[i].fullDate = fullDate(obj[i].time, timezone);
     obj[i].humidity = Math.round(obj[i].humidity * 100);
     obj[i].iconSrc = getIcon(obj[i].icon);
