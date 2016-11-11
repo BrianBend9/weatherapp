@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/server/www-entry.js",
   "scripts": {
-    "start": "npm run prestart:server && NODE_ENV=production node build/server/www-entry",
+    "start": "NODE_ENV=production node build/server/www-entry",
     "prestart:server": "rm -rf build && npm run build:server && cp -R src/templates/ build/templates",
     "prestart:client": "rm -rf client/images && find client -maxdepth 1 -type f -delete && npm run build:client",
     "dev": "nodemon --exec DEBUG=express:* node_modules/.bin/babel-node src/server/www-entry",
