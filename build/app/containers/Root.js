@@ -38,9 +38,9 @@ var Root = function (_Component) {
   _createClass(Root, [{
     key: 'render',
     value: function render() {
-      var _props = this.props;
-      var store = _props.store;
-      var history = _props.history;
+      var _props = this.props,
+          store = _props.store,
+          history = _props.history;
 
       return _react2.default.createElement(
         _reactRedux.Provider,
