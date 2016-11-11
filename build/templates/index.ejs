@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
+  <link href='/bootstrap-3.3.7/bootstrap.min.css' rel='stylesheet' type='text/css'>
+  <link href='/bootstrap-3.3.7/bootstrap-theme.min.css' rel='stylesheet' type='text/css'>
+  <link href='/<%= css %>' rel='stylesheet' type='text/css'>
+    <% if(typeof initialState !== 'undefined') { %>
+      <script type='application/javascript'>
+        window.__INITIAL_STATE__ = <%- JSON.stringify(initialState) %>
+      </script>
+    <% } %>
+  <title></title>
+  </head>
+  <body>
+    <div id='root'>
+      <% if(typeof content !== 'undefined') { %>
+       <div><%- content %></div> 
+      <% } %>
+    </div>  
+    <script src='/app.bundle.js'></script>
+    <script src='/jquery/jquery-3.1.1.min.js'></script>
+    <script src='/bootstrap-3.3.7/bootstrap.min.js'></script>
+  </body>
+</html>

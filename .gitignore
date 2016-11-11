@@ -1,8 +1,4 @@
 node_modules/
-build/
-client/app.bundle.js
-client/app.min.css
-client/images/
 client/moment-timezonejs-0.5.9/
 client/momentjs-2.15.2/
 *.swp
