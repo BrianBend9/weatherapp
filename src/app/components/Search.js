@@ -25,7 +25,7 @@ class Search extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.routerActions.push(`/overview/${this.state.location}`);
-    this.props.actionCreators.getLocationAndForecast(location);
+    this.props.actionCreators.getLocationAndForecast(this.state.location);
     this.setState({
       location: '',
     });
