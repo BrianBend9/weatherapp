@@ -1,1 +1,1 @@
-web: NODE_ENV=production node build/server/www-entry 
+web: node build/server/www-entry 
