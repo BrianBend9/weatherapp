@@ -12,6 +12,10 @@ var _compression = require('compression');
 
 var _compression2 = _interopRequireDefault(_compression);
 
+var _cors = require('cors');
+
+var _cors2 = _interopRequireDefault(_cors);
+
 var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
@@ -52,6 +56,8 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 server.use(_express2.default.static('client'));
+
+server.use((0, _cors2.default)());
 
 server.use('/api', _apiRouting2.default);
 
