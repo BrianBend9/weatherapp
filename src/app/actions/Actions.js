@@ -29,7 +29,7 @@ export function rejectedCoordinates(response) {
 export function getLocation(location) {
   return (dispatch) => {
     dispatch(requestCoordinates(location));
-    return axios.get(`https://simple-weatherapp.herokuapp.com/api/geocode?location=${location}`)
+    return axios.get(`/api/geocode?location=${location}`)
       .then(
         response => dispatch(fulfilledCoordinates(response)),
         error => dispatch(rejectedCoordinates(error))
@@ -65,7 +65,7 @@ export function rejectedForecast(response) {
 export function getForecast(latitude, longitude) {
   return (dispatch) => {
     dispatch(requestForecast());
-    return axios.get(`https://simple-weatherapp.herokuapp.com/api/forecast?lat=${latitude}&lon=${longitude}`)
+    return axios.get(`/api/forecast?lat=${latitude}&lon=${longitude}`)
       .then(
         response => dispatch(fulfilledForecast(response)),
         error => dispatch(rejectedForecast(error))
