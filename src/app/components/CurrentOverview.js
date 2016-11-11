@@ -1,8 +1,4 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable global-require */
-/* eslint-disable import/no-dynamic-require */
-
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const CurrentOverview = props => (
   <div className='display--currentOverview'>
@@ -13,7 +9,7 @@ const CurrentOverview = props => (
 
     <div className='display__tempAndIcon--currentOverview'>
       <div className='forecastImage--currentOverview'>
-        <img src={props.forecast.iconSrc} alt='icon' />
+        <img src={props.forecast.iconSrc} alt={props.forecast.icon} />
       </div>
 
       <div className='forecastTemperature--currentOverview'>
@@ -56,7 +52,7 @@ const CurrentOverview = props => (
 );
 
 CurrentOverview.propTypes = {
-
+  forecast: PropTypes.object.isRequired,
 };
 
 export default CurrentOverview;

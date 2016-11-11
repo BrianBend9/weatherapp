@@ -1,6 +1,5 @@
-/* eslint-disable jsx-a11y/href-no-hash */
-
 import React from 'react';
+import { Link } from 'react-router';
 import Search from './Search';
 
 const Navbar = () => (
@@ -13,7 +12,7 @@ const Navbar = () => (
           <span className='icon-bar' />
           <span className='icon-bar' />
         </button>
-        <a className='navbar-brand' href='#'>Weatherapp</a>
+        <Link to={'/'} className='navbar-brand'>Weatherapp</Link>
       </div>
       <div className='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>
         <Search formClass='navbar-form navbar-right' formBtnClass='btn btn-info' containerClass='form__container--navbar' role='search' />
@@ -21,4 +20,5 @@ const Navbar = () => (
     </div>
   </nav>
 );
+
 export default Navbar;

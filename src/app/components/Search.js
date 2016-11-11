@@ -4,7 +4,7 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { routerActions } from 'react-router-redux';
-import * as actionCreators from '../actions/LocationActions';
+import * as actionCreators from '../actions/Actions';
 
 class Search extends Component {
   constructor(props) {

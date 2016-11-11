@@ -1,12 +1,11 @@
 /* eslint-disable react/prefer-stateless-function */
-/* eslint-disable react/prop-types */
 
 import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { routerActions } from 'react-router-redux';
 import { Link } from 'react-router';
-import * as actionCreators from '../actions/LocationActions';
+import * as actionCreators from '../actions/Actions';
 import DayOverview from '../components/DayOverview';
 import CurrentOverview from '../components/CurrentOverview';
 
@@ -34,6 +33,7 @@ class OverviewContainer extends Component {
               dayOfWeek={forecast.day1.dayOfWeek}
               high={forecast.day1.temperatureMax}
               icon={forecast.day1.iconSrc}
+              iconAlt={forecast.day1.icon}
               low={forecast.day1.temperatureMin}
               summary={forecast.day1.summary}
             />
@@ -47,6 +47,7 @@ class OverviewContainer extends Component {
               dayOfWeek={forecast.day2.dayOfWeek}
               high={forecast.day2.temperatureMax}
               icon={forecast.day2.iconSrc}
+              iconAlt={forecast.day2.icon}
               low={forecast.day2.temperatureMin}
               summary={forecast.day2.summary}
             />
@@ -60,6 +61,7 @@ class OverviewContainer extends Component {
               dayOfWeek={forecast.day3.dayOfWeek}
               high={forecast.day3.temperatureMax}
               icon={forecast.day3.iconSrc}
+              iconAlt={forecast.day3.icon}
               low={forecast.day3.temperatureMin}
               summary={forecast.day3.summary}
             />
@@ -73,6 +75,7 @@ class OverviewContainer extends Component {
               dayOfWeek={forecast.day4.dayOfWeek}
               high={forecast.day4.temperatureMax}
               icon={forecast.day4.iconSrc}
+              iconAlt={forecast.day4.icon}
               low={forecast.day4.temperatureMin}
               summary={forecast.day4.summary}
             />
@@ -86,6 +89,7 @@ class OverviewContainer extends Component {
               dayOfWeek={forecast.day5.dayOfWeek}
               high={forecast.day5.temperatureMax}
               icon={forecast.day5.iconSrc}
+              iconAlt={forecast.day5.icon}
               low={forecast.day5.temperatureMin}
               summary={forecast.day5.summary}
             />
@@ -97,9 +101,8 @@ class OverviewContainer extends Component {
 }
 
 OverviewContainer.propTypes = {
-  location: PropTypes.object.isRequired, //eslint-disable-line
-  actionCreators: PropTypes.object.isRequired, //eslint-disable-line
-  forecast: PropTypes.object //eslint-disable-line
+  location: PropTypes.object.isRequired,
+  forecast: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {

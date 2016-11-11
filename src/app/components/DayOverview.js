@@ -1,6 +1,4 @@
-import React from 'react';
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
+import React, { PropTypes } from 'react';
 
 const DayOverview = props => (
   <div className='display--dayOverview'>
@@ -9,7 +7,7 @@ const DayOverview = props => (
       <p className='display__description--dayOverview'>{props.summary}</p>
     </div>
     <div className='forecastImage--dayOverview'>
-      <img src={props.icon} alt='icon' />
+      <img src={props.icon} alt={props.iconAlt} />
     </div>
     <div className='forecastTemperature--dayOverview'>
       <div className='display__high--dayOverview'>
@@ -25,7 +23,12 @@ const DayOverview = props => (
 );
 
 DayOverview.propTypes = {
+  dayOfWeek: PropTypes.string.isRequired,
+  summary: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+  iconAlt: PropTypes.string.isRequired,
+  high: PropTypes.number.isRequired,
+  low: PropTypes.number.isRequired,
 };
-
 
 export default DayOverview;
