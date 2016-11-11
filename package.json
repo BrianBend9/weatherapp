@@ -12,7 +12,6 @@
     "build:client": "NODE_ENV=production node_modules/.bin/webpack --config webpack.config.prod.js --progress --colors",
     "build:server": "babel src -d build",
     "test": "mocha --compilers js:babel-core/register --watch",
-    "heroku-postbuild": "npm run prestart:server && npm run prestart:client"
   },
   "author": "Brian Bend",
   "license": "ISC",
