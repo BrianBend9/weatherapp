@@ -18,7 +18,7 @@ export function getCoordinatesPreload(queryLoc) {
 
 export function getForecastPreload(latitude, longitude) {
   return axios.get(forecastEndpoint(latitude, longitude))
-    .then(res => console.log(res.data));
+    .then(res => res.data);
 }
 
 export function dayOfWeek(unixTimestamp, timezone) {

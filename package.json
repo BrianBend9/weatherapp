@@ -4,10 +4,13 @@
   "description": "",
   "main": "src/server/www-entry.js",
   "scripts": {
-    "prestart": "find build -maxdepth 1 -type f -delete && npm run build",
+    "start": "npm run prestart:server && NODE_ENV=production node build/server/www-entry",
+    "prestart:server": "rm -rf build && npm run build:server && cp -R src/templates/ build/templates",
+    "prestart:client": "find client -maxdepth 1 -type f -delete && npm run build:client",
     "dev": "nodemon --exec DEBUG=express:* node_modules/.bin/babel-node src/server/www-entry",
     "dev:nodebug": "nodemon --exec node_modules/.bin/babel-node src/server/www-entry",
-    "build": "NODE_ENV=production node_modules/.bin/webpack --config webpack.config.prod.js --progress --colors",
+    "build:client": "NODE_ENV=production node_modules/.bin/webpack --config webpack.config.prod.js --progress --colors",
+    "build:server": "babel src -d build",
     "test": "mocha --compilers js:babel-core/register --watch"
   },
   "author": "Brian Bend",

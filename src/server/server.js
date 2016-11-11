@@ -24,7 +24,7 @@ if (process.env.NODE_ENV !== 'production') {
   server.use(require('webpack-hot-middleware')(compiler));
 }
 
-server.use(express.static('build'));
+server.use(express.static('client'));
 
 server.use('/api', apiRouting);
 
