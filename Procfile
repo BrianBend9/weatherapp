@@ -1,1 +1,1 @@
-web: npm run prestart:client && npm run prestart:server && npm run start
+web: NODE_ENV=production node build/server/www-entry 
