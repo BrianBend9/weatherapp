@@ -3,6 +3,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
+import Environmentals from '../components/Environmentals';
 
 class DetailContainer extends Component {
   render() {
@@ -40,34 +41,15 @@ class DetailContainer extends Component {
           </div>
         </div>
 
-        <div className='forecastEnvironmentals--dayDetail'>
-          <ul>
-            <li>
-              <p className='display__envHeading--dayDetail'>wind speed</p>
-              <p className='display__envReading--dayDetail'>{forecast[dayObj].windSpeed} km/h</p>
-            </li>
-            <li>
-              <p className='display__envHeading--dayDetail'>wind bearing</p>
-              <p className='display__envReading--dayDetail'>{forecast[dayObj].windBearing}°</p>
-            </li>
-            <li>
-              <p className='display__envHeading--dayDetail'>cloud cover</p>
-              <p className='display__envReading--dayDetail'>{forecast[dayObj].cloudCover} %</p>
-            </li>
-            <li>
-              <p className='display__envHeading--dayDetail'>pressure</p>
-              <p className='display__envReading--dayDetail'>{forecast[dayObj].pressure}</p>
-            </li>
-            <li>
-              <p className='display__envHeading--dayDetail'>humidity</p>
-              <p className='display__envReading--dayDetail'>{forecast[dayObj].humidity} %</p>
-            </li>
-            <li>
-              <p className='display__envHeading--dayDetail'>visibility</p>
-              <p className='display__envReading--dayDetail'>{forecast[dayObj].visibility} km</p>
-            </li>
-          </ul>
-        </div>
+        <Environmentals
+          cssClass='dayDetail'
+          windSpeed={forecast[dayObj].windSpeed}
+          windBearing={forecast[dayObj].windBearing}
+          cloudCover={forecast[dayObj].cloudCover}
+          pressure={forecast[dayObj].pressure}
+          humidity={forecast[dayObj].humidity}
+          visibility={forecast[dayObj].visibility}
+        />
 
       </div>
     );

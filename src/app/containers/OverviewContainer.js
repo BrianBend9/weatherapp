@@ -1,4 +1,5 @@
 /* eslint-disable react/prefer-stateless-function */
+/* eslint-disable react/prop-types */
 
 import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';

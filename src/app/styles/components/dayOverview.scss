@@ -101,22 +101,23 @@
     align-items: center;
     justify-content: initial;
     order: 1;
-    padding: 0px 2px;
+    padding: 0px 5px;
   }
 
   .forecastImage--dayOverview {
-    height: 50%;
+    height: 45%;
     width: 100%;
     order: 2;
 
     img {
-      height: 100px; 
+      height: 80px; 
     }
   }
 
   .forecastTemperature--dayOverview {
-    height: 20%;
+    height: 25%;
     width: 100%;
+    padding-bottom: 2px;
     order: 3;
   }
  
@@ -127,6 +128,7 @@
   .display__high--dayOverview,
   .display__low--dayOverview {
     flex-flow: column nowrap;
+    justify-content: flex-end;
   }
 
   .display__description--dayOverview {
